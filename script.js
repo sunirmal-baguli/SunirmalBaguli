@@ -22,7 +22,7 @@ if (isAndroidChrome) {
     document.querySelectorAll(".social-link[data-android-email-app]").forEach((link) => {
         link.addEventListener("click", (event) => {
             const emailUrl = new URL(link.href);
-            const recipient = emailUrl.pathname;
+            const recipient = emailUrl.pathname.replace(/^V/,");
             const fallbackUrl = new URL("https:mail.google.com/mail/");
             fallbackUrl.searchParams.set("view", "cm");
             fallbackUrl.searchParams.set("fs", "1");
