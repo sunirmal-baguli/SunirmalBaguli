@@ -23,14 +23,14 @@ if (isAndroidChrome) {
         link.addEventListener("click", (event) => {
             const emailUrl = new URL(link.href);
             const recipient = emailUrl.pathname;
-            const fallbackUrl = new URL("https://mail.google.com/mail/");
+            const fallbackUrl = new URL("https:mail.google.com/mail/");
             fallbackUrl.searchParams.set("view", "cm");
             fallbackUrl.searchParams.set("fs", "1");
             fallbackUrl.searchParams.set("to", recipient);
 
             event.preventDefault();
             window.location.href =
-                `intent://${recipient}#Intent;scheme=mailto` +
+                `intent:${recipient}#Intent;scheme=mailto` +
                 `;package=${link.dataset.androidEmailApp}` +
                 `;S.browser_fallback_url=${encodeURIComponent(fallbackUrl.href)};end`;
         });
